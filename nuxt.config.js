@@ -43,10 +43,34 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/firebase',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
+  firebase: {
+    config: {
+      apiKey: "AIzaSyDYV5um-fUt5khOcz9P4yk_Opd8_-wI6A8",
+      authDomain: "positive-care.firebaseapp.com",
+      // databaseURLはなくてOK
+      projectId: "positive-care",
+      storageBucket: "positive-care.appspot.com",
+      messagingSenderId: "641205532057",
+      appId: "1:641205532057:web:e287e991fcf883b6b10f08",
+      measurementId: "G-1XHNHS1LF0",
+    },
+    services: {
+      auth: true,
+      firestore: true,
+      functions: true,
+      storage: true,
+      database: true,
+      messaging: true,
+      performance: true,
+      analytics: true,
+      remoteConfig: true
+    }
+  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
