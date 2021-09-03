@@ -91,6 +91,15 @@ height:縦　混同してるから周知。
 
 ログインとアカウント登録　別々で作成する。
 
+R3.8.30
+Fire base
+中・doc 右 doc.date
+
+FireBaseから articleを引用していたが、doc.dateをもらうんじゃなくdocのIDをもらう。
+
+ファイルの後ろに番号。それで各商品を区別する、
+@click="returnPage()">
+
 
 
 script CSS

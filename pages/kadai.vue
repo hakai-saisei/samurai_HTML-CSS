@@ -10,17 +10,7 @@
           <v-card-title> ポジティブケア </v-card-title>
         </v-row>
       </v-img>
-      <!-- <v-app-bar
-        absolute
-        color="#6A76AB"
-        dark
-        shrink-on-scroll
-        prominent
-        src="https://picsum.photos/1920/1080?random"
-        fade-img-on-scroll
-        scroll-target="#scrolling-techniques-3"
-      >
-      </v-app-bar> -->
+
       <v-sheet
         id="scrolling-techniques-3"
         class="overflow-y-auto"
@@ -41,9 +31,10 @@
               tile
               min-height="600"
               min-width="auto"
+              @click="toDetail(article.id)"
             >
               <v-card class="pa-2" outlined tile>
-                <v-card-title>{{ article.title }}</v-card-title>
+                <v-card-title>{{ article.data().title }}</v-card-title>
                 <v-img
                   src="https://pro-foto.jp/free/img/images_big/sor0090-024.jpg"
                 >
@@ -109,10 +100,14 @@ export default {
         .get()
         .then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
-            this.articles.push(doc.data())
+            this.articles.push(doc)
             console.log(doc.data())
+            console.log(doc.id)
           })
         })
+    },
+    toDetail(id) {
+      this.$router.push({ path: `article/` + id })
     },
   },
   created: function () {

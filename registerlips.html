@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+  <meta content="790c7f2687079365e66ebf5bc52b3fa9" name="p:domain_verify">
+  <meta charset="UTF-8">
+  <title>ログインサンプル</title>
+  <meta name="description" content="コスメアプリNo.1 LIPSのログイン画面です。メールアドレス、Facebook、Twitter、LINEからログインができます。">
+  <link rel="canonical" href="https://lipscosme.com/users/sign_in" class="current_link">
+  <meta property="og:title" content="ログイン">
+  <meta property="og:description" content="コスメアプリNo.1 LIPSのログイン画面です。メールアドレス、Facebook、Twitter、LINEからログインができます。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://lipscosme.com/users/sign_in">
+  <meta property="og:image"
+    content="https://cdn.lipscosme.com/assets/lips-og-image-df23c351333ae8567a02e5c015b15683db44e10773b56741097d71c93e6a8d87.png">
+  <meta property="og:site_name" content="LIPS">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@lipsjp">
+  <meta property="fb:app_id" content="1231265256934025">
+  <meta name="locale" content="ja_JP">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta name="csrf-param" content="authenticity_token">
+  <meta name="csrf-token"
+    content="1KUQ8iu7+SK/lB4JCJAXZygSkWZf/FE1YUbkJVRFifzjysvca4OhFgZyrHO7MBxV0EfjdQrDNw+oNdtM1Ayoiw==">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <link rel="apple-touch-icon" sizes="180x180"
+    href="//cdn.lipscosme.com/assets/favicon/apple-touch-icon-cc5b9fbfff58a36a9d630f043f28981629fa69ba77db2498a13c5ad63f1cbfce.png">
+  <link rel="icon" type="image/png" sizes="32x32"
+    href="//cdn.lipscosme.com/assets/favicon/favicon-32x32-a9d1ee227c2dff098292029c11e819256fe24587c112b347b7067a366da6f77b.png">
+  <link rel="icon" type="image/png" sizes="16x16"
+    href="//cdn.lipscosme.com/assets/favicon/favicon-16x16-019f0f03ba3a7f7cbed6896557d2d126a5ea54aefa2856f1e4343db2bda61853.png">
+  <link rel="manifest"
+    href="//cdn.lipscosme.com/assets/favicon/site-fb801444ecd9c7d1c27df647febfd94f0b5c171a0aa1469e003f16fd3e76da0c.webmanifest">
+  <link rel="mask-icon"
+    href="//cdn.lipscosme.com/assets/favicon/safari-pinned-tab-8de9929d96262e1b6198cddeadc6d9d3fd2e3af77374efecfbeb05133f97395d.svg"
+    color="#5bbad5">
+  <link rel="shortcut icon"
+    href="//cdn.lipscosme.com/assets/favicon/favicon-e613c63a06ef2d1082d9366810796c6cceff75dca8648c8d72e46b05515d196f.ico">
+  <meta name="msapplication-TileColor" content="#FF4361">
+  <meta name="msapplication-config"
+    content="//cdn.lipscosme.com/assets/favicon/browserconfig-15cd188744f5a005eb52523b18db13452159385c46991f7c5f7a02247b4c2179.xml">
+  <meta name="theme-color" content="#ffffff">
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+  <script type="text/javascript" async=""
+    src="https://www.google-analytics.com/gtm/js?id=GTM-NK899MJ&amp;t=gtm4&amp;cid=1775670008.1628258063"></script>
+  <script async="" src="https://www.google-analytics.com/analytics.js"></script>
+  <script type="text/javascript" async="" src="https://static.ads-twitter.com/uwt.js"></script>
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+  <script src="https://connect.facebook.net/signals/config/2109479859070147?v=2.9.45&amp;r=stable" async=""></script>
+  <script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script>
+  <script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-WG2P8D3"></script>
+  <script>window.ENV = "production"
+    window.isLoggedIn = false
+    window.lipsSearchProductEndPoint = window.location.protocol + "//" + window.location.hostname + (window.location.port.length > 0 ? ":" + window.location.port : "") + "/products/index_js"</script>
+  <link href="https://cdn.lipscosme.com" rel="preconnect">
+  <link href="https://cdn.lipscosme.com" rel="dns-prefetch">
+  <link href="https://pagead2.googlesyndication.com" rel="preconnect">
+  <link href="https://pagead2.googlesyndication.com" rel="dns-prefetch">
+  <link rel="stylesheet" media="all"
+    href="//cdn.lipscosme.com/assets/application-db1981f5fc7ea2ed96f7ff4c6a8271c58daca4c78e432a1f8e21d47e00c417bd.css"
+    data-turbolinks-track="true">
+  <script
+    src="//cdn.lipscosme.com/assets/application-998daf71a6287017ba4c9528be3f2a0fe21c290dc7f511fbb8114b236c1351a3.js"
+    data-turbolinks-track="true" defer="defer"></script>
+  <script>window; dataLayer = window.dataLayer || [];
+    dataLayer.push({
+      'uid': "",
+      'controller': "users/sessions",
+      'route': "users/sessions#new",
+      'author_id': ""
+    });
+    dataLayer.push({});</script><!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-WG2P8D3');</script>
+  <!-- End Google Tag Manager -->
+  <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script type="module">
+    import { getCLS, getFID, getLCP, getTTFB, getFCP } from 'https://unpkg.com/web-vitals@0.2.4/dist/web-vitals.es5.min.js?module';
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-88052714-1', 'auto', { 'useAmpClientId': true });
+    function sendToGoogleAnalytics({ name, delta, id }) {
+      if (name === 'LCP') { ga('set', 'dimension10', String(Math.floor(delta / 100) * 100) + '~' + String(Math.floor(delta / 100) * 100 + 100)); }
+      ga('send', 'event', {
+        eventCategory: 'Web Vitals',
+        eventAction: name,
+        // For CLS the value is first multiplied by 1000 for greater precision
+        eventValue: Math.round(name === 'CLS' ? delta * 1000 : delta),
+        // page load 単位で発行される id でまとめて指標を計測
+        eventLabel: id,
+        // 直帰率への影響を回避
+        nonInteraction: true,
+      });
+    }
+    getCLS(sendToGoogleAnalytics);
+    getFID(sendToGoogleAnalytics);
+    getLCP(sendToGoogleAnalytics);
+    getTTFB(sendToGoogleAnalytics);
+    getFCP(sendToGoogleAnalytics);
+  </script>
+  <!-- Facebook Pixel Code -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2109479859070147');
+
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=2109479859070147&ev=PageView&noscript=1" />
+  </noscript>
+  <!-- End Facebook Pixel Code -->
+  <meta http-equiv="origin-trial"
+    content="A88otRz1Fd3Nt567e2IYshC18LL3KGVXpVJW9oTCId4RYaygt23pbb4JqrbdIO/bwZPWEmRjBIRBu/bZbDR7Pg4AAABueyJvcmlnaW4iOiJodHRwczovL2ltYXNkay5nb29nbGVhcGlzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MzQwODMxOTksImlzVGhpcmRQYXJ0eSI6dHJ1ZX0=">
+  <meta http-equiv="origin-trial"
+    content="A0gCLbXCcL0R1Oc8tFPDs0G4Elz17w3zHp+Zst66+D17veE2o7fUcPsA114QtSTRqfVJLMeTSdeWOom0CcyCsgYAAAB7eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MzQwODMxOTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9">
+  <meta http-equiv="origin-trial"
+    content="A9RQ+LxFazAousxUwSCzaihJjHLO1UyjQp0teZKHl7WdbVjPDfHSKMd6D/ZI5MTjqClFycbl70EFd7cBJWXqKQEAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MzQwODMxOTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9">
+  <meta http-equiv="origin-trial"
+    content="A6WKeWsdn1Ct+ZPqS9NCxxaiBoQ7wdTkK2/gE69Yu0gfBKJfo1gOvgkGmf5/xaIajT/RUb9AbnF1FsSZ47cCcQcAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MzQwODMxOTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9">
+  <meta http-equiv="origin-trial"
+    content="A04ZCu7yjrHgwQJK5ISHhH1DSg0qqowEay3n70KO6wV3D2Mj+OX3Kw20aSMitzgdG1xfrN7sOJV/dZIk+RvCzA4AAAB2eyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IlRydXN0VG9rZW5zIiwiZXhwaXJ5IjoxNjM0MDgzMTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
+  <meta http-equiv="origin-trial"
+    content="A2YAd4xOntTGygIDjApOTtXOgVI3IWsd5OnOGq3RbRkIQwyqYWNl1JGRAcvtm6VOHDj4n07T/J19VqLuJn3MmQ8AAACWeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjMxNjYzOTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9">
+  <meta http-equiv="origin-trial"
+    content="A2c5Ux+hivdkLh/KbZUGr6f7SCR0mZrBVfPJ+/OuDVHNwiYv+Lo83b9z5qL8sod78bQl0pSLtbvRWURo+xRl7AIAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjMxNjYzOTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9">
+  <meta http-equiv="origin-trial"
+    content="AzNJ4sd3tVurolpdvWYZ4cmP9Po7RJhEHSqmC3pgxW9fFVZvchhtcMUgHAs97npxMD1jhXHO8s6q6Wy1MMLxKgEAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjMxNjYzOTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9">
+  <meta http-equiv="origin-trial"
+    content="AwfG8hAcHnPa/kJ1Co0EvG/K0F9l1s2JZGiDLt2mhC3QI5Fh4qmsmSwrWObZFbRC9ieDaSLU6lHRxhGUF/i9sgoAAACBeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiSW50ZXJlc3RDb2hvcnRBUEkiLCJleHBpcnkiOjE2MjYyMjA3OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9">
+  <meta http-equiv="origin-trial"
+    content="AwQ7dCmHkvR6FuOFxAuNnktYSQrGbL4dF+eBkrwNLALc69Wr//PnO1yzns3pjUoCaYbKHtVcnng2hU+8OUm0PAYAAACHeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiSW50ZXJlc3RDb2hvcnRBUEkiLCJleHBpcnkiOjE2MjYyMjA3OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9">
+  <meta http-equiv="origin-trial"
+    content="AysVDPGQTLD/Scn78x4mLwB1tMfje5jwUpAAzGRpWsr1NzoN7MTFhT3ClmImi2svDZA7V6nWGIV8YTPsSRTe0wYAAACHeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiSW50ZXJlc3RDb2hvcnRBUEkiLCJleHBpcnkiOjE2MjYyMjA3OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9">
+</head>
+</tamplate>

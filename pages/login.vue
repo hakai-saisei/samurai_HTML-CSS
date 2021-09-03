@@ -1,27 +1,34 @@
 <template>
-  <v-form ref="form" v-model="valid" lazy-validation>
-    <v-text-field
-      v-model="name"
-      :counter="10"
-      :rules="nameRules"
-      label="君の名は？IDを入力してください。"
-      required
-    ></v-text-field>
+  <v-card>
+    <v-card-title>
+      <h1 class="display-1">ログイン</h1>
+    </v-card-title>
 
-    <v-text-field
-      v-model="email"
-      :rules="emailRules"
-      label="メアド教えてよ。E-mailアドレスを入力してください。"
-      required
-    ></v-text-field>
+    <v-form ref="form" v-model="valid" lazy-validation>
+      <v-text-field
+        v-model="name"
+        :counter="10"
+        :rules="nameRules"
+        label="君の名は？IDを入力してください。"
+        required
+      ></v-text-field>
 
-    <v-row align="center" justify="space-around">
-      <v-btn tile color="#8BC34">
-        <v-icon left> mdi-pencil </v-icon>
-        君の瞳に今すぐアクセス
-      </v-btn>
-    </v-row>
-  </v-form>
+      <v-text-field
+        v-model="email"
+        :rules="emailRules"
+        label="メアド教えてよ。E-mailアドレスを入力してください。"
+        required
+      ></v-text-field>
+
+      <v-row align="center" justify="space-around">
+        <v-btn tile color="#8BC34">
+          <v-icon left> mdi-pencil </v-icon>
+          君の瞳に今すぐアクセス
+        </v-btn>
+      </v-row>
+    </v-form>
+    <v-card width="400px" class="mx-auto mt-5"></v-card>
+  </v-card>
 </template>
 
 <script>
