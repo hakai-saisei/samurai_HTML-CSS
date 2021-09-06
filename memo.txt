@@ -96,6 +96,9 @@ Fire base
 中・doc 右 doc.date
 
 FireBaseから articleを引用していたが、doc.dateをもらうんじゃなくdocのIDをもらう。
+詳細ページ作ってもいい。登録ページ先に作るほうがいい。
+
+
 
 ファイルの後ろに番号。それで各商品を区別する、
 @click="returnPage()">

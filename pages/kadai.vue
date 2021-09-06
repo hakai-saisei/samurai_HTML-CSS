@@ -1,12 +1,23 @@
 <template>
   <div>
+    <!--
+    <v-btn
+      class="ma-2"
+      outlined
+      large
+      fab
+      color="red"
+    >
+      <v-icon>mdi-mouse</v-icon>
+    </v-btn>
+     -->
     <v-card class="overflow-hidden">
       <v-img
         class="white--text align-end"
         height="600px"
         src="https://pro-foto.jp/free/img/images_big/hns0006-009.jpg"
       >
-        <v-row row justify-center align-center>
+        <v-row justify="center">
           <v-card-title> ポジティブケア </v-card-title>
         </v-row>
       </v-img>
