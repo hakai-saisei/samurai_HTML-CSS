@@ -98,11 +98,41 @@ Fire base
 FireBaseから articleを引用していたが、doc.dateをもらうんじゃなくdocのIDをもらう。
 詳細ページ作ってもいい。登録ページ先に作るほうがいい。
 
-
-
 ファイルの後ろに番号。それで各商品を区別する、
 @click="returnPage()">
 
+class名に - が含まれている場合、そのままだとattribute valueとして認識されません。
+{}シングルクォーテーションで囲む。
+
+基本的に、v-row（行）の中に、v-col（列）を配置し、レイアウト（グリッド）を整えます！
+
+<v-row align="center" justify="center">
+align(縦方向)、 justify（横方向）で中の要素の配置を指定
+
+<v-col cols="12" sm="8" md="4">
+でレスポンシブ対応を記述します。
+
+ポイントは、幅は12で100％横幅が埋まります。
+
+ざっくり、
+cols：スマホサイズ、sm：タブレットサイズ、md：ラップトップサイズ
+の時の横幅サイズを指定することができます。
+
+<v-row
+      v-for="n in 2"
+      :key="n"
+      :class="n === 1 ? 'mb-6' : ''"
+      no-gutters
+    >
+      <v-col
+        v-for="k in n + 1"
+        :key="k"
+      >
+
+      ・samples02 
+      登録したデータを反映するようにする。
+      ・画面を綺麗にしてください。　9月10日
+      
 
 
 script CSS

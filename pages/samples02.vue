@@ -1,0 +1,68 @@
+<template>
+  <div>
+    <v-container>
+      <v-row>
+        <v-col cols="6">
+          <v-flex xs6 md6>
+            <v-card>
+              <v-card-title> ここにイラスト画像差し入れる </v-card-title>
+            </v-card>
+          </v-flex>
+        </v-col>
+      </v-row>
+    </v-container>
+    <v-container>
+      <v-row>
+        <v-col cols="6">
+          <v-flex xs6 md6>
+            <v-card-title>詳細１</v-card-title>
+            <v-textarea
+              class="mt-0"
+              solo
+              auto-grow
+              rows="1"
+              value=""
+              placeholder="詳細１概要"
+            ></v-textarea>
+            <v-card-title>詳細２</v-card-title>
+            <v-textarea
+              class="mt-0"
+              solo
+              auto-grow
+              rows="1"
+              value=""
+              placeholder="詳細２概要"
+            ></v-textarea>
+            <v-card-title>詳細３</v-card-title>
+            <v-textarea
+              class="mt-0"
+              solo
+              auto-grow
+              rows="1"
+              value=""
+              placeholder="詳細３概要"
+            ></v-textarea>
+            <v-card-title>詳細４</v-card-title>
+            <v-textarea
+              class="mt-0"
+              solo
+              auto-grow
+              rows="1"
+              value=""
+              placeholder="詳細４概要"
+            ></v-textarea>
+            <v-card-title>詳細５</v-card-title>
+            <v-textarea
+              class="mt-0"
+              solo
+              auto-grow
+              rows="1"
+              value=""
+              placeholder="詳細５概要"
+            ></v-textarea>
+          </v-flex>
+        </v-col>
+      </v-row>
+    </v-container>
+  </div>
+</template>
