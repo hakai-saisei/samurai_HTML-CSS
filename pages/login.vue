@@ -1,27 +1,24 @@
 <template>
-  <v-card>
+  <v-card class="login">
     <v-card-title>
       <h1 class="display-1">ログイン</h1>
     </v-card-title>
 
     <v-form ref="form" v-model="valid" lazy-validation>
       <v-text-field
-        v-model="name"
-        :counter="10"
-        :rules="nameRules"
-        label="君の名は？IDを入力してください。"
+        v-model="email"
+        label="メアド教えてよ。"
         required
       ></v-text-field>
 
       <v-text-field
-        v-model="email"
-        :rules="emailRules"
-        label="メアド教えてよ。E-mailアドレスを入力してください。"
+        v-model="password"
+        label="パスワードを入力してください。"
         required
       ></v-text-field>
 
       <v-row align="center" justify="space-around">
-        <v-btn tile color="#8BC34">
+        <v-btn tile color="#8BC34" @click="submit">
           <v-icon left> mdi-pencil </v-icon>
           君の瞳に今すぐアクセス
         </v-btn>
@@ -49,6 +46,17 @@ export default {
   }),
 
   methods: {
+    submit() {
+      this.$fire.auth
+        .signInWithEmailAndPassword(this.email, this.password)
+        .then((user) => {
+          console.log('成功！')
+          dispatch('checkLogin')
+        })
+        .catch((error) => {
+          alert(error)
+        })
+    },
     validate() {
       this.$refs.form.validate()
     },
@@ -61,3 +69,8 @@ export default {
   },
 }
 </script>
+<style scoped>
+.login {
+  background: white;
+}
+</style>

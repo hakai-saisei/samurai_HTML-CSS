@@ -1,133 +1,149 @@
 <template>
-
-<!-- App.vue -->
-
-<v-app>
-  <v-navigation-drawer app>
-    <!-- -->
-  </v-navigation-drawer>
-
-  <v-app-bar app>
-    <!-- -->
-  </v-app-bar>
-
-  <!-- アプリケーションのコンポーネントに基づいてコンテンツのサイズを決定 -->
-  <v-main>
-
-    <!-- アプリケーションに適切なgutterを提供します -->
-    <v-container fluid>
-  <v-carousel>
-    <v-carousel-item
-      v-for="(item,i) in items"
-      :key="i"
-      :src="item.src"
-      reverse-transition="fade-transition"
-      transition="fade-transition"
-    ></v-carousel-item>
-  </v-carousel>
-
-  <div class="text-center">
-    <v-btn
-      class="ma-2"
-      outlined
-      color="indigo"
+  <div>
+    <v-card class="overflow-hidden">
+      <v-img
+        class="white--text align-end"
+        height="400px"
+        src="https://pro-foto.jp/free/img/images_big/hns0006-009.jpg"
+      >
+        <!-- タイトル -->
+      </v-img>
+    </v-card>
+    <v-card-title class="text-center" height="100px"
+      >ポジティブケアの目的</v-card-title
     >
-      Outlined Button
-    </v-btn>
-    <v-btn
-      class="ma-2"
-      outlined
-      fab
-      color="teal"
+    <v-card-subtitle 　　class="text-center">
+      令和になっても介護職に対するマイナスのイメージは根強い。<br />
+      高まり続ける需要とは反対に、離職の絶えない現場。<br />
+      上がることのない給料。<br />
+
+      そんな中でも、面白いことや驚いたことを共有することで、<br />
+      モチベーションのをあげることができるのではないか？<br />
+      そう考え、作成していたサイトです。<br />
+      匿名性を維持しつつも共有できれば！と思っています。</v-card-subtitle
     >
-      <v-icon>mdi-format-list-bulleted-square</v-icon>
-    </v-btn>
-    <v-btn
-      class="ma-2"
-      outlined
-      large
-      fab
-      color="red"
-    >
-      <v-icon>mdi-mouse</v-icon>
-    </v-btn>
+    <!-- >サイト概要 -->
+
+    <v-row>
+      <v-col cols="8">
+        <v-row>
+          <v-col cols="6" v-for="(article, i) in articles" :key="i">
+            <v-card
+              class="d-flex justify-space-around mb-2"
+              color="grey lighten-2"
+              flat
+              tile
+              min-height="600"
+              min-width="auto"
+              @click="toDetail(article.id)"
+            >
+              <v-card class="pa-2" outlined tile>
+                <v-card-title>{{ article.data().title }}</v-card-title>
+                <v-img :src="article.url"> </v-img>
+              </v-card>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-col>
+      <!-- 投稿された記事サムネ表示 -->
+      <v-col cols="4">
+        <v-card class="mx-auto" max-width="300" tile>
+          <v-list disabled>
+            <v-subheader>カテゴリ</v-subheader>
+            <v-list-item-group v-model="selectedItem" color="primary">
+              <v-list-item v-for="(item, i) in items" :key="i">
+                <v-list-item-icon>
+                  <v-icon v-text="item.icon"></v-icon>
+                </v-list-item-icon>
+                <v-list-item-content>
+                  <v-list-item-title v-text="item.text"></v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list-item-group>
+          </v-list>
+        </v-card>
+        <v-card class="mx-auto" max-width="300" tile>
+          <v-list disabled>
+            <v-list-item-group v-model="selectedItem" color="primary">
+              <v-list-item v-for="(item, i) in items" :key="i">
+                <v-list-item-icon>
+                  <v-icon v-text="item.icon"></v-icon>
+                </v-list-item-icon>
+                <v-list-item-content>
+                  <v-list-item-title v-text="item.text"></v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list-item-group>
+          </v-list>
+        </v-card>
+      </v-col>
+    </v-row>
+    <!-- カテゴリ別検索欄できるようにしておケッツ -->
   </div>
-
-  <v-row justify="center">
-    <v-dialog
-      v-model="dialog"
-      persistent
-      max-width="290"
-    >
-      <template v-slot:activator="{ on, attrs }">
-        <v-btn
-          color="primary"
-          dark
-          v-bind="attrs"
-          v-on="on"
-        >
-          Open Dialog
-        </v-btn>
-      </template>
-      <v-card>
-        <v-card-title class="text-h5">
-          Use Google's location service?
-        </v-card-title>
-        <v-card-text>Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.</v-card-text>
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn
-            color="green darken-1"
-            text
-            @click="dialog = false"
-          >
-            Disagree
-          </v-btn>
-          <v-btn
-            color="green darken-1"
-            text
-            @click="dialog = false"
-          >
-            Agree
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
-  </v-row>
-
-      <!-- vue-routerを使用している場合 -->
-      <router-view></router-view>
-    </v-container>
-  </v-main>
-
-  <v-footer app>
-    <!-- -->
-  </v-footer>
-</v-app>
-
 </template>
 
 <script>
-  export default {
-    data () {
-      return {
-        dialog: false,
-        items: [
-          {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
-          },
-          {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
-          },
-          {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
-          },
-          {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
-          },
-        ],
-      }
-    },
-  }
+import url from 'vuelidate/lib/validators/url'
+export default {
+  data: () => ({
+    selectedItem: 1,
+    items: [
+      { text: '特養', icon: 'alphabet-t-box-outline' },
+      { text: '老健', icon: 'alphabet-r-box-outline' },
+      { text: 'GH', icon: 'alphabet-g-box-outline' },
+      { text: 'ケアハウス', icon: 'alphabet-c-box-outline' },
+    ],
+    articles: [],
+  }),
+  // カテゴリ別検索
+  methods: {
+    getArticle() {
+      this.$fire.firestore
+        .collection('article')
 
+        .get()
+        .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            // 画像のURL取得
+            let storage = this.$fire.storage
+            let storageRef = storage.ref().child('article/' + doc.id)
+            console.log(this.file)
+            storageRef
+              .getDownloadURL()
+              .then((res) => {
+                console.log(res)
+                doc['url'] = res
+                this.articles.push(doc)
+                console.log(doc.data())
+                console.log('見たいやつ', doc.url)
+                console.log(doc.id)
+              })
+              .catch((error) => console.log(error))
+          })
+        })
+    },
+    toDetail(id) {
+      this.$router.push({ path: `article/` + id })
+    },
+  },
+  created: function () {
+    this.getArticle()
+    console.log('created')
+  },
+}
 </script>
+<style scoped>
+.button {
+  border: none;
+  border-radius: 2px;
+}
+
+.button-close {
+  background-color: red;
+}
+.card-style {
+  background-color: red;
+  max-width: 100px !important;
+  max-height: 50px;
+}
+</style>
