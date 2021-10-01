@@ -8,7 +8,7 @@
         max-width="640"
       >
         <v-card-title class="text-center pa-8">
-          <h4 class="fill-width">会員情報入力</h4>
+          <h4 class="fill-width">新規登録ページ</h4>
         </v-card-title>
         <v-divider> </v-divider>
         <div class="px-6 py-8">
@@ -53,7 +53,7 @@
               </div>
               <v-divider></v-divider>
               <div class="pt-8 pb-4">
-                <span>すでにアカウントをお持ちですか？</span>
+                <span>すでにアカウントをお持ちですか？</span><br />
                 <nuxt-link to="/login">ログインに移動</nuxt-link>
               </div>
             </div>

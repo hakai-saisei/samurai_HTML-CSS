@@ -49,21 +49,7 @@
       <v-col cols="4">
         <v-card class="mx-auto" max-width="300" tile>
           <v-list disabled>
-            <v-subheader>カテゴリ</v-subheader>
-            <v-list-item-group v-model="selectedItem" color="primary">
-              <v-list-item v-for="(item, i) in items" :key="i">
-                <v-list-item-icon>
-                  <v-icon v-text="item.icon"></v-icon>
-                </v-list-item-icon>
-                <v-list-item-content>
-                  <v-list-item-title v-text="item.text"></v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-            </v-list-item-group>
-          </v-list>
-        </v-card>
-        <v-card class="mx-auto" max-width="300" tile>
-          <v-list disabled>
+            <v-subheader>カテゴリ別検索</v-subheader>
             <v-list-item-group v-model="selectedItem" color="primary">
               <v-list-item v-for="(item, i) in items" :key="i">
                 <v-list-item-icon>
@@ -90,8 +76,10 @@ export default {
     items: [
       { text: '特養', icon: 'alphabet-t-box-outline' },
       { text: '老健', icon: 'alphabet-r-box-outline' },
-      { text: 'GH', icon: 'alphabet-g-box-outline' },
+      { text: 'グループホーム', icon: 'alphabet-g-box-outline' },
       { text: 'ケアハウス', icon: 'alphabet-c-box-outline' },
+      { text: '病院', icon: 'alphabet-c-box-outline' },
+      { text: 'その他', icon: 'alphabet-c-box-outline' },
     ],
     articles: [],
   }),
@@ -104,7 +92,6 @@ export default {
         .get()
         .then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
-            // 画像のURL取得
             let storage = this.$fire.storage
             let storageRef = storage.ref().child('article/' + doc.id)
             console.log(this.file)
@@ -122,7 +109,9 @@ export default {
           })
         })
     },
+    // 画像のURL取得
     toDetail(id) {
+      // @click=toDetail実行したらarticleのid渡してる。113のIDを使って114の処理をする。
       this.$router.push({ path: `article/` + id })
     },
   },

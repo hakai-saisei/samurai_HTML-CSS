@@ -15,7 +15,7 @@
           v-btn-toggle
           v-model="text"
           tile
-          color="deep-purple accent-3"
+          color="green right1"
           group
         >
           <v-btn value="left"> 特別養護老人ホーム </v-btn>
@@ -23,6 +23,8 @@
           <v-btn value="center"> 老人健康保健施設 </v-btn>
 
           <v-btn value="right"> ケアハウス </v-btn>
+
+          <v-btn value="justify"> グループホーム </v-btn>
 
           <v-btn value="justify"> 病院 </v-btn>
         </v-btn-toggle>
@@ -32,7 +34,7 @@
         <v-text-field v-model="form.title" placeholder="記入先はこちら">
         </v-text-field>
         <v-card-title>施設内のどこで起きたのかを教えてください。</v-card-title>
-        <v-btn-toggle v-model="text" tile color="deep-purple accent-3" group>
+        <v-btn-toggle v-model="text" tile color="green right1" group>
           <v-btn value="left"> 居室 </v-btn>
 
           <v-btn value="center"> 廊下 </v-btn>
@@ -62,8 +64,10 @@
           rows="5"
           placeholder="記入先はこちら！"
         ></v-textarea>
+        <v-btn class="fill-width caption" color="pink" @click="submit">
+          投稿する
+        </v-btn>
       </v-card>
-      <v-btn class="mr-4" @click="submit"> 投稿する </v-btn>
     </v-form>
   </v-flex>
 </template>
