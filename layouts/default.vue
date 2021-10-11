@@ -2,6 +2,8 @@
   <v-app dark>
     <v-app-bar :clipped-left="clipped" fixed app>
       <div @click="toTop" class="logo d-flex justify-center">
+        <v-icon left> mdi-home </v-icon>
+        <!-- mdiとは MaterialDesginIcon の略称 -->
         <div class="logo-text">ポジティブケア</div>
       </div>
       <!-- クラスバインディングの基本は「オブジェクト構文」です。
@@ -12,13 +14,31 @@
       今回の例だと、右を文字列として扱うか、変数として扱うか。-->
       <v-spacer />
       <v-row class="d-flex flex-row-reverse" align="right">
-        <v-btn tile color="green" outlined to="/login" nuxt>
+        <v-btn
+          v-if="loginId == null"
+          tile
+          color="green"
+          outlined
+          to="/login"
+          nuxt
+        >
           <v-icon left> mdi-pencil </v-icon>
           ログイン
         </v-btn>
-        <v-btn tile color="green" outlined to="/register" nuxt>
+        <v-btn
+          v-if="loginId == null"
+          tile
+          color="green"
+          outlined
+          to="/register"
+          nuxt
+        >
           <v-icon left> mdi-pencil </v-icon>
           新規登録
+        </v-btn>
+        <v-btn v-if="loginId" tile color="green" outlined to="/post" nuxt>
+          <v-icon left> mdi-pencil </v-icon>
+          投稿
         </v-btn>
       </v-row>
     </v-app-bar>
@@ -47,10 +67,21 @@ export default {
       this.$router.push({ path: `/` })
     },
   },
+
+  computed: {
+    loginId: function () {
+      return this.$store.state.loginUserId
+    },
+  },
+  watch: {
+    loginId: function (val) {
+      console.log('ユーザーIDが変更された: ', this.$store.state.loginUserId)
+    },
+  },
 }
 </script>
 <!--言語をCSSからSCSSに変更。階層を表現できるため
-　　 親がlogoクラスで自分がlogo-textならば適用されるようにしている。 -->
+　　 親がlogoクラスで子がlogo-textならば適用されるようにしている。 -->
 <style lang="scss"scoped>
 .default {
   background: orange;

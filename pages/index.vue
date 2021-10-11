@@ -44,6 +44,10 @@
             </v-card>
           </v-col>
         </v-row>
+        <v-card-title class="d-flex justify-space-around md-2">
+          さらに表示する
+        </v-card-title>
+        <!-- 記事を画面全体に表示するページを　-->
       </v-col>
       <!-- 投稿された記事サムネ表示 -->
       <v-col cols="4">
@@ -101,7 +105,6 @@ export default {
                 console.log(res)
                 doc['url'] = res
                 this.articles.push(doc)
-                console.log(doc.data())
                 console.log('見たいやつ', doc.url)
                 console.log(doc.id)
               })

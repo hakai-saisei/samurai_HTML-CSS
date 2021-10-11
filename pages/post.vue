@@ -18,20 +18,19 @@
           color="green right1"
           group
         >
-          <v-btn value="left"> 特別養護老人ホーム </v-btn>
-
-          <v-btn value="center"> 老人健康保健施設 </v-btn>
-
-          <v-btn value="right"> ケアハウス </v-btn>
-
-          <v-btn value="justify"> グループホーム </v-btn>
-
-          <v-btn value="justify"> 病院 </v-btn>
+          <v-btn
+            :value="category.value"
+            v-for="(category, i) in categories"
+            :key="i"
+          >
+            {{ category.text }}
+          </v-btn>
         </v-btn-toggle>
+        <!-- ボタン中身グループわけてる。 -->
         <v-card-title
           >上記以外の場合は、下の欄へ記入してください。</v-card-title
         >
-        <v-text-field v-model="form.title" placeholder="記入先はこちら">
+        <v-text-field v-model="form.detail" placeholder="記入先はこちら">
         </v-text-field>
         <v-card-title>施設内のどこで起きたのかを教えてください。</v-card-title>
         <v-btn-toggle v-model="text" tile color="green right1" group>
@@ -49,14 +48,14 @@
         <v-card-title
           >上記以外の場合は、下の欄へ記入してください。</v-card-title
         >
-        <v-text-field v-model="form.title" placeholder="記入先はこちら">
+        <v-text-field v-model="form.other" placeholder="記入先はこちら">
         </v-text-field>
 
         <v-card-title
           >どのように対処したか、そしてあなたが感じたことを共有してみましょう。</v-card-title
         >
         <v-textarea
-          v-model="form.detail"
+          v-model="form.another"
           class="mt-0"
           solo
           label=""
@@ -86,9 +85,17 @@ export default {
   data: () => ({
     select: null,
     form: { title: '', detail: '', place: '' },
-    items: ['Item 1', 'Item 2', 'Item 3', 'Item 4'],
-    file: {},
+    categories: [
+      { text: '特別養護老人ホーム', value: '1' },
+      { text: '老人健康保健施設', value: '2' },
+      { text: 'ケアハウス', value: '3' },
+      { text: 'グループホーム', value: '4' },
+      { text: '病院', value: '5' },
+    ],
+    places: [{ text: '' }],
+    file: {}, // ファイル選択した画像を保存してるよ
   }),
+  // ここも上と同じように作っておいてね 10月11日
 
   // computed: {
   //   selectErrors() {

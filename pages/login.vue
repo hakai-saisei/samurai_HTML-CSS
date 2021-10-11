@@ -109,15 +109,18 @@ export default {
       (v) => /.+@.+\..+/.test(v) || 'password must be valid',
     ],
     checkbox: false,
+    passwordShow: false,
   }),
 
   methods: {
     submit() {
       this.$fire.auth
         .signInWithEmailAndPassword(this.email, this.password)
-        .then((user) => {
-          console.log('成功！')
-          dispatch('checkLogin')
+        .then((data) => {
+          console.log('成功！', data.user.uid)
+
+          this.$store.dispatch('setLoginUserId', data.user.uid)
+          this.$router.push({ path: `/` })
         })
         .catch((error) => {
           alert(error)
