@@ -13,9 +13,9 @@
         <v-card-title>体験した施設を選んでください。</v-card-title>
         <v-btn-toggle
           v-btn-toggle
-          v-model="text"
+          v-model="categories"
           tile
-          color="green right1"
+          color="orange"
           group
         >
           <v-btn
@@ -33,7 +33,7 @@
         <v-text-field v-model="form.detail" placeholder="記入先はこちら">
         </v-text-field>
         <v-card-title>施設内のどこで起きたのかを教えてください。</v-card-title>
-        <v-btn-toggle v-model="text" tile color="green right1" group>
+        <v-btn-toggle v-model="form.place" tile color="orange" group>
           <v-btn value="left"> 居室 </v-btn>
 
           <v-btn value="center"> 廊下 </v-btn>
@@ -63,7 +63,8 @@
           rows="5"
           placeholder="記入先はこちら！"
         ></v-textarea>
-        <v-btn class="fill-width caption" color="pink" @click="submit">
+        <v-btn tile color="orange" outlined @click="submit" to="/" nuxt>
+          <v-icon left> mdi-pencil </v-icon>
           投稿する
         </v-btn>
       </v-card>
@@ -84,7 +85,7 @@ export default {
 
   data: () => ({
     select: null,
-    form: { title: '', detail: '', place: '' },
+    form: { title: '', detail: '', place: '', other: '', another: '' },
     categories: [
       { text: '特別養護老人ホーム', value: '1' },
       { text: '老人健康保健施設', value: '2' },
@@ -95,16 +96,6 @@ export default {
     places: [{ text: '' }],
     file: {}, // ファイル選択した画像を保存してるよ
   }),
-  // ここも上と同じように作っておいてね 10月11日
-
-  // computed: {
-  //   selectErrors() {
-  //     const errors = []
-  //     if (!this.$v.select.$dirty) return errors
-  //     !this.$v.select.required && errors.push('Item is required')
-  //     return errors
-  //   },
-  // },
 
   methods: {
     submit() {

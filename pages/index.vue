@@ -12,7 +12,7 @@
     <v-card-title class="text-center" height="100px"
       >ポジティブケアの目的</v-card-title
     >
-    <v-card-subtitle 　　class="text-center">
+    <v-card-subtitle 　　class="text-center" height="40px">
       令和になっても介護職に対するマイナスのイメージは根強い。<br />
       高まり続ける需要とは反対に、離職の絶えない現場。<br />
       上がることのない給料。<br />
@@ -30,7 +30,7 @@
           <v-col cols="6" v-for="(article, i) in articles" :key="i">
             <v-card
               class="d-flex justify-space-around mb-2"
-              color="grey lighten-2"
+              color="orange"
               flat
               tile
               min-height="600"
@@ -54,21 +54,19 @@
         <v-card class="mx-auto" max-width="300" tile>
           <v-list disabled>
             <v-subheader>カテゴリ別検索</v-subheader>
-            <v-list-item-group v-model="selectedItem" color="primary">
-              <v-list-item v-for="(item, i) in items" :key="i">
-                <v-list-item-icon>
-                  <v-icon v-text="item.icon"></v-icon>
-                </v-list-item-icon>
-                <v-list-item-content>
-                  <v-list-item-title v-text="item.text"></v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-            </v-list-item-group>
+
+            <v-list-item v-for="(item, i) in items" :key="i">
+              <v-list-item-content>
+                <v-list-item-title
+                  v-text="item.text"
+                  class=""
+                ></v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
           </v-list>
         </v-card>
       </v-col>
     </v-row>
-    <!-- カテゴリ別検索欄できるようにしておケッツ -->
   </div>
 </template>
 
@@ -78,12 +76,12 @@ export default {
   data: () => ({
     selectedItem: 1,
     items: [
-      { text: '特養', icon: 'alphabet-t-box-outline' },
-      { text: '老健', icon: 'alphabet-r-box-outline' },
-      { text: 'グループホーム', icon: 'alphabet-g-box-outline' },
-      { text: 'ケアハウス', icon: 'alphabet-c-box-outline' },
-      { text: '病院', icon: 'alphabet-c-box-outline' },
-      { text: 'その他', icon: 'alphabet-c-box-outline' },
+      { text: '特養' },
+      { text: '老健' },
+      { text: 'グループホーム' },
+      { text: 'ケアハウス' },
+      { text: '病院' },
+      { text: 'その他' },
     ],
     articles: [],
   }),

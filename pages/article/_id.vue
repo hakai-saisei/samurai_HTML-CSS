@@ -15,7 +15,7 @@
       <v-col cols="6">
         <v-col>
           <v-card>
-            <v-card-title>詳細１</v-card-title>
+            <v-card-title>投稿者</v-card-title>
             <v-textarea
               class="mt-0"
               solo
@@ -24,7 +24,7 @@
               value=""
               placeholder="詳細１概要"
             ></v-textarea>
-            <v-card-title>詳細２</v-card-title>
+            <v-card-title>投稿日時</v-card-title>
             <v-textarea
               class="mt-0"
               solo
@@ -33,7 +33,7 @@
               value=""
               placeholder="詳細２概要"
             ></v-textarea>
-            <v-card-title>詳細３</v-card-title>
+            <v-card-title>施設</v-card-title>
             <v-textarea
               class="mt-0"
               solo
@@ -42,7 +42,7 @@
               value=""
               placeholder="詳細３概要"
             ></v-textarea>
-            <v-card-title>詳細４</v-card-title>
+            <v-card-title>場所</v-card-title>
             <v-textarea
               class="mt-0"
               solo
@@ -51,7 +51,7 @@
               value=""
               placeholder="詳細４概要"
             ></v-textarea>
-            <v-card-title>詳細５</v-card-title>
+            <v-card-title>どう感じ、どう対処したか</v-card-title>
             <v-textarea
               class="mt-0"
               solo
