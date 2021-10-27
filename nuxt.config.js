@@ -95,3 +95,5 @@ export default {
   build: {
   }
 }
+loading: './components/Loading.vue'
+

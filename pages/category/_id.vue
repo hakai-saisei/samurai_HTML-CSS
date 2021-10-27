@@ -9,9 +9,9 @@
         <!-- タイトル -->
       </v-img>
     </v-card>
-    <v-card-title class="text-center" height="100px"
-      >ポジティブケアの目的</v-card-title
-    >
+    <v-card-title class="text-center" height="100px">{{
+      $route.query.name
+    }}</v-card-title>
     <v-card-subtitle 　　class="text-center" height="40px">
       令和になっても介護職に対するマイナスのイメージは根強い。<br />
       高まり続ける需要とは反対に、離職の絶えない現場。<br />
@@ -52,19 +52,18 @@
       <!-- 投稿された記事サムネ表示 -->
       <v-col cols="4">
         <v-card class="mx-auto" max-width="300" tile>
-          <v-list>
+          <v-list disabled>
             <v-subheader>カテゴリ別検索</v-subheader>
 
-            <v-list-item
-              v-for="(item, i) in items"
-              :key="i"
-              @click="goto(item)"
-            >
+            <v-list-item v-for="(item, i) in items" :key="i">
               <v-list-item-content>
                 <v-list-item-title
                   v-text="item.text"
                   class=""
                 ></v-list-item-title>
+                <v-btn tile color="orange" outlined @click="goto(item)" nuxt>
+                  投稿する
+                </v-btn>
               </v-list-item-content>
             </v-list-item>
           </v-list>
@@ -94,8 +93,9 @@ export default {
     getArticle() {
       this.$fire.firestore
         .collection('article')
-
+        .where('category', '==', this.$route.query.id)
         .get()
+
         .then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
             let storage = this.$fire.storage
@@ -120,15 +120,14 @@ export default {
       this.$router.push({ path: `article/` + id })
     },
     goto(item) {
-      console.log('あああああああ')
-      this.$router.push({
-        path: `/category?id=` + item.id + '&name=' + item.text,
-      })
+      this.$router.push({ path: `/?` + item.id + '&' + item.text })
     },
   },
   created: function () {
     this.getArticle()
     console.log('created')
+    console.log(this.$route.query)
+    console.log(this.$route.params.id)
   },
 }
 </script>

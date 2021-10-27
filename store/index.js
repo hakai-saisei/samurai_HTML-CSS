@@ -1,4 +1,5 @@
 
+
 export const state = () => ({
     loginUserId: null
 });
@@ -15,4 +16,5 @@ export const actions = {
         console.log('おいっす: ', loginUserId)
     }
 }
+
 // https://qiita.com/natsumi_23/items/baff222f856167a3685a 引用しました。

@@ -106,7 +106,6 @@ export default {
           console.log('Add ID: ', ref.id)
           this.uploadImgfile(ref.id)
         })
-      this.$v.$touch()
     },
     uploadImgfile(fileName) {
       let storage = this.$fire.storage

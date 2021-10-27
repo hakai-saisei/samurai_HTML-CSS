@@ -85,6 +85,10 @@
 
 <script>
 export default {
+  loading: {
+    color: 'blue',
+    height: '5px',
+  },
   data() {
     return {
       title: 'ポジティブケア',

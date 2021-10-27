@@ -3,7 +3,24 @@
     <div>
       <v-card class="mx-auto fill-width" flat max-width="640">
         <v-card-title class="text-center pa-8">
-          <v-icon> mdi-account </v-icon>
+          <v-avatar size="80" class="mb-3 avatar">
+            <img
+              src="@/assets/no-avater.png"
+              class="avatar-image"
+              v-if="!avaterImage.image"
+            />
+            <!-- !で逆という意味 -->
+            <img :src="avaterImage.image" />
+            <!-- 画像ファイルの呼び出し処理　-->
+          </v-avatar>
+          <v-file-input
+            v-model="file"
+            show-size
+            label="画像を選択する。"
+            ref="file"
+            @change="setImage"
+          ></v-file-input>
+          <!-- inputの値が変わる処理はchange -->
           <h4 class="fill-width">アカウント設定ページ</h4>
         </v-card-title>
         <v-divider> </v-divider>
@@ -78,6 +95,7 @@
 export default {
   data: () => ({
     form: { nickName: '', loginUserId: '', age: '', text: '', profile: '' },
+    avaterImage: {},
   }),
   computed: {
     loginId: function () {
@@ -91,8 +109,6 @@ export default {
         .doc(this.loginId)
         .get()
         .then((doc) => {
-          console.log(doc, 'doc')
-          console.log(doc.data(), 'doc.data()')
           this.form = doc.data()
         })
     },
@@ -107,6 +123,26 @@ export default {
         .catch(function (error) {
           console.error('アカウント情報の更新に失敗しました。', error)
         })
+    },
+    setImage(e) {
+      // const files = this.$refs.file
+      // console.log(files)
+      // console.log(e)
+      // console.log(files.files)
+      // const fileImg = files.files[0] // 画像を取得する際、filesオブジェクトの0番目の画像を取得する。これルール。
+
+      this.avaterImage.image = window.URL.createObjectURL(e)
+      this.avaterImage.name = e.name
+      this.avaterImage.type = e.type
+    },
+    uploadImgfile(fileName) {
+      let storage = this.$fire.storage
+      let storageRef = storage.ref().child('user/' + fileName)
+      console.log(this.file)
+      storageRef
+        .put(this.file)
+        .then((res) => console.log(res))
+        .catch((error) => console.log(error))
     },
   },
   created: function () {
