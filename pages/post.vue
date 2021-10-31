@@ -11,13 +11,7 @@
           label="画像を選択する。"
         ></v-file-input>
         <v-card-title>体験した施設を選んでください。</v-card-title>
-        <v-btn-toggle
-          v-btn-toggle
-          v-model="categories"
-          tile
-          color="orange"
-          group
-        >
+        <v-btn-toggle v-model="build" tile color="orange" group>
           <v-btn
             :value="category.value"
             v-for="(category, i) in categories"
@@ -34,15 +28,15 @@
         </v-text-field>
         <v-card-title>施設内のどこで起きたのかを教えてください。</v-card-title>
         <v-btn-toggle v-model="form.place" tile color="orange" group>
-          <v-btn value="left"> 居室 </v-btn>
+          <v-btn value="7"> 居室 </v-btn>
 
-          <v-btn value="center"> 廊下 </v-btn>
+          <v-btn value="8"> 廊下 </v-btn>
 
-          <v-btn value="right"> 食堂 </v-btn>
+          <v-btn value="9"> 食堂 </v-btn>
 
-          <v-btn value="justify"> トイレ </v-btn>
+          <v-btn value="10"> トイレ </v-btn>
 
-          <v-btn value="justify"> 浴室 </v-btn>
+          <v-btn value="11"> 浴室 </v-btn>
         </v-btn-toggle>
 
         <v-card-title
@@ -63,10 +57,39 @@
           rows="5"
           placeholder="記入先はこちら！"
         ></v-textarea>
-        <v-btn tile color="orange" outlined @click="submit" to="/" nuxt>
+
+        <!-- <v-btn tile color="orange" outlined @click="submit" to="/" nuxt>
           <v-icon left> mdi-pencil </v-icon>
           投稿する
-        </v-btn>
+        </v-btn> -->
+        <div class="text-center">
+          <v-dialog v-model="dialog" width="500">
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn color="orange" dark v-bind="attrs" v-on="on">
+                確認する
+              </v-btn>
+            </template>
+            <v-card>
+              <v-card-title class="text-h5 grey lighten-2">
+                投稿するにあたって
+              </v-card-title>
+
+              <v-card-text>
+                この投稿によって施設、職員、個人が特定されたり、誹謗中傷の対象とならないこと。
+              </v-card-text>
+
+              <v-divider></v-divider>
+
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn color="orange" to="/" nuxt @click="submit">
+                  確認しました。
+                </v-btn>
+                <!-- ここ　-->
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
+        </div>
       </v-card>
     </v-form>
   </v-flex>
@@ -93,8 +116,12 @@ export default {
       { text: 'グループホーム', value: '4' },
       { text: '病院', value: '5' },
     ],
+
     places: [{ text: '' }],
     file: {}, // ファイル選択した画像を保存してるよ
+    return: {
+      dialog: false,
+    },
   }),
 
   methods: {

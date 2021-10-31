@@ -30,6 +30,7 @@
           <v-icon left> mdi-account </v-icon>
           ユーザー名
         </v-btn>
+        <!-- ここにアイコン出そうとするとバグる -->
         <v-btn
           class="logout"
           v-if="loginId"

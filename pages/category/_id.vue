@@ -52,18 +52,19 @@
       <!-- 投稿された記事サムネ表示 -->
       <v-col cols="4">
         <v-card class="mx-auto" max-width="300" tile>
-          <v-list disabled>
+          <v-list>
             <v-subheader>カテゴリ別検索</v-subheader>
 
-            <v-list-item v-for="(item, i) in items" :key="i">
+            <v-list-item
+              v-for="(item, i) in items"
+              :key="i"
+              @click="goto(item)"
+            >
               <v-list-item-content>
                 <v-list-item-title
                   v-text="item.text"
                   class=""
                 ></v-list-item-title>
-                <v-btn tile color="orange" outlined @click="goto(item)" nuxt>
-                  投稿する
-                </v-btn>
               </v-list-item-content>
             </v-list-item>
           </v-list>
@@ -95,7 +96,6 @@ export default {
         .collection('article')
         .where('category', '==', this.$route.query.id)
         .get()
-
         .then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
             let storage = this.$fire.storage
@@ -120,14 +120,15 @@ export default {
       this.$router.push({ path: `article/` + id })
     },
     goto(item) {
-      this.$router.push({ path: `/?` + item.id + '&' + item.text })
+      console.log('あああああああ')
+      this.$router.push({
+        path: `/category?id=` + item.id + '&name=' + item.text,
+      })
     },
   },
   created: function () {
     this.getArticle()
     console.log('created')
-    console.log(this.$route.query)
-    console.log(this.$route.params.id)
   },
 }
 </script>

@@ -120,7 +120,6 @@ export default {
       this.$router.push({ path: `article/` + id })
     },
     goto(item) {
-      console.log('あああああああ')
       this.$router.push({
         path: `/category?id=` + item.id + '&name=' + item.text,
       })
