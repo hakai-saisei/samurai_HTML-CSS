@@ -82,9 +82,29 @@
 
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="orange" to="/" nuxt @click="submit">
-                  確認しました。
-                </v-btn>
+                <v-btn color="orange" @click="submit"> 確認しました。 </v-btn>
+                <!-- ここ　-->
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
+        </div>
+
+        <div class="text-center">
+          <v-dialog v-model="dialog2" width="500">
+            <v-card>
+              <v-card-title class="text-h5 grey lighten-2">
+                トップページに戻ります。
+              </v-card-title>
+
+              <v-card-text>
+                この投稿によって施設、職員、個人が特定されたり、誹謗中傷の対象とならないこと。
+              </v-card-text>
+
+              <v-divider></v-divider>
+
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn color="orange" to="/" nuxt> 確認しました。 </v-btn>
                 <!-- ここ　-->
               </v-card-actions>
             </v-card>
@@ -119,18 +139,19 @@ export default {
 
     places: [{ text: '' }],
     file: {}, // ファイル選択した画像を保存してるよ
-    return: {
-      dialog: false,
-    },
+    dialog: false,
+    dialog2: false,
   }),
 
   methods: {
     submit() {
+      // articleを保存。
       this.$fire.firestore
         .collection('article')
         .add(this.form)
         .then((ref) => {
-          console.log('Add ID: ', ref.id)
+          console.log('記事保存成功　Add ID: ', ref.id)
+          // 記事画像を保存する。
           this.uploadImgfile(ref.id)
         })
     },
@@ -140,7 +161,11 @@ export default {
       console.log(this.file)
       storageRef
         .put(this.file)
-        .then((res) => console.log(res))
+        .then((res) => {
+          console.log('画像保存成功　Add ID: ', res.id)
+          this.dialog = false
+          this.dialog2 = true
+        })
         .catch((error) => console.log(error))
     },
   },

@@ -7,10 +7,13 @@
             <img
               src="@/assets/no-avater.png"
               class="avatar-image"
-              v-if="!avaterImage.image"
+              v-if="!avaterImage.image && !avaterUrl"
             />
             <!-- !で逆という意味 -->
             <img :src="avaterImage.image" />
+            <img :src="avaterUrl" />
+            <!-- 二重で表示されないように v-if 処理追記する。 -->
+
             <!-- 画像ファイルの呼び出し処理　-->
           </v-avatar>
           <v-file-input
@@ -96,6 +99,7 @@ export default {
   data: () => ({
     form: { nickName: '', loginUserId: '', age: '', text: '', profile: '' },
     avaterImage: {},
+    avaterUrl: null,
   }),
   computed: {
     loginId: function () {
@@ -110,6 +114,20 @@ export default {
         .get()
         .then((doc) => {
           this.form = doc.data()
+          // 画像を取得する。
+          let storage = this.$fire.storage
+          let storageRef = storage.ref().child('user/' + doc.id)
+          storageRef
+            .getDownloadURL()
+            .then((res) => {
+              console.log(res)
+              this.avaterUrl = res
+              // =が代入の意味。docがここまでのデータ要素を含んでいる。
+              console.log(doc.data())
+              console.log('見たいやつ', doc.url)
+              console.log(doc.id)
+            })
+            .catch((error) => console.log(error))
         })
     },
     submit() {
@@ -117,8 +135,9 @@ export default {
         .collection('user')
         .doc(this.loginId)
         .set(this.form)
-        .then(function () {
-          console.log('アカウント情報の更新に成功しました。')
+        .then((ref) => {
+          console.log('アカウント情報の更新に成功しました。', ref)
+          this.uploadImgfile(this.loginId)
         })
         .catch(function (error) {
           console.error('アカウント情報の更新に失敗しました。', error)
