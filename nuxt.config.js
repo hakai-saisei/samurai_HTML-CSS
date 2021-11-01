@@ -4,7 +4,7 @@ export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
   router: {
-    base: 'samurai_HTML-CSS'
+    base: '/samurai_HTML-CSS/'
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
