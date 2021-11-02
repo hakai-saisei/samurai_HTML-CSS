@@ -9,8 +9,8 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - hakai-saisei',
-    title: 'hakai-saisei',
+    titleTemplate: 'ポジティブケア', // ここサイト名。
+    title: 'ポジティブケア',　// これタブ。
     htmlAttrs: {
       lang: 'en'
     },
