@@ -28,15 +28,13 @@
         </v-text-field>
         <v-card-title>施設内のどこで起きたのかを教えてください。</v-card-title>
         <v-btn-toggle v-model="form.place" tile color="orange" group>
-          <v-btn value="7"> 居室 </v-btn>
-
-          <v-btn value="8"> 廊下 </v-btn>
-
-          <v-btn value="9"> 食堂 </v-btn>
-
-          <v-btn value="10"> トイレ </v-btn>
-
-          <v-btn value="11"> 浴室 </v-btn>
+          <v-btn
+            :value="category.value"
+            v-for="(category, i) in places"
+            :key="i"
+          >
+            {{ category.text }}
+          </v-btn>
         </v-btn-toggle>
 
         <v-card-title
@@ -71,11 +69,12 @@
             </template>
             <v-card>
               <v-card-title class="text-h5 grey lighten-2">
-                投稿するにあたって
+                投稿内容確認
               </v-card-title>
 
-              <v-card-text>
-                この投稿によって施設、職員、個人が特定されたり、誹謗中傷の対象とならないこと。
+              <v-card-text v-if="form.place == 7">
+                場所:居室
+                <!-- 場所:{{ form.place }} -->
               </v-card-text>
 
               <v-divider></v-divider>
@@ -137,7 +136,13 @@ export default {
       { text: '病院', value: '5' },
     ],
 
-    places: [{ text: '' }],
+    places: [
+      { text: '居室', value: '6' },
+      { text: '廊下', value: '7' },
+      { text: '食堂', value: '8' },
+      { text: 'トイレ', value: '9' },
+      { text: '浴室', value: '10' },
+    ],
     file: {}, // ファイル選択した画像を保存してるよ
     dialog: false,
     dialog2: false,
